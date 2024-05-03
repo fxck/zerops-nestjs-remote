@@ -1,4 +1,4 @@
-import { Controller, Get, Post, Res } from '@nestjs/common';
+import { Controller, Get, Res } from '@nestjs/common';
 import { Response } from 'express';
 import { EntryService } from './database/entry.service';
 
@@ -6,7 +6,7 @@ import { EntryService } from './database/entry.service';
 export class AppController {
   constructor(private readonly entryService: EntryService) {}
 
-  @Post('/')
+  @Get('/')
   async addEntry(@Res() res: Response) {
     const result = await this.entryService.addEntry();
     return res.status(201).send(result);
