@@ -23,7 +23,6 @@ services:
       - port: 8080
         httpSupport: true
     verticalAutoscaling:
-      cpuMode: SHARED
       minRam: 5
       maxRam: 5
       minCpu: 4
