@@ -35,5 +35,7 @@ zerops:
         - ./
         - .git
     run:
+      prepareCommands:
+        - curl -fsSL https://code-server.dev/install.sh | sh
       start: code-server --auth=none --bind-addr="0.0.0.0:8080" /var/www
 
