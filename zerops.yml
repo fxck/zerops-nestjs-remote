@@ -17,7 +17,7 @@ zerops:
         - node_modules
         - package.json
     run:
-      start: start:prod
+      start: npm run start:prod
 
   - setup: dev
     envVariables:
