@@ -1,6 +1,7 @@
 ```
 project:
   name: nestjs-remote
+
 services:
   - hostname: db
     type: postgresql@14
@@ -8,28 +9,14 @@ services:
 
   - hostname: api
     type: nodejs@20
-    envSecrets:
-      DB_HOST: db
-      DB_NAME: db
-      DB_PASS: ${db_password}
-      DB_PORT: "5432"
-      DB_USER: ${db_user}
-      URL: ${zeropsSubdomain}
     ports:
       - port: 3000
         httpSupport: true
-    buildFromGit: https://github.com/fxck/nestjs-remote
+    buildFromGit: https://github.com/fxck/zerops-nestjs-remote
     enableSubdomainAccess: true
 
-  - hostname: apidev
+  - hostname: dev
     type: nodejs@20
-    envSecrets:
-      DB_HOST: db
-      DB_NAME: db
-      DB_PASS: ${db_password}
-      DB_PORT: "5432"
-      DB_USER: ${db_user}
-      URL: ${zeropsSubdomain}
     ports:
       - port: 3000
         httpSupport: true
@@ -42,4 +29,6 @@ services:
       minCpu: 4
       maxCpu: 4
     maxContainers: 1
+    buildFromGit: https://github.com/fxck/zerops-nestjs-remote
+    enableSubdomainAccess: true
 ```

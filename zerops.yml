@@ -1,0 +1,39 @@
+zerops:
+  - setup: api
+    envVariables:
+      DB_HOST: db
+      DB_NAME: db
+      DB_PASS: ${db_password}
+      DB_PORT: 5432
+      DB_USER: ${db_user}
+      URL: ${zeropsSubdomain}
+    build:
+      base: nodejs@20
+      buildCommands:
+        - npm i
+        - npm run build
+      deploy:
+        - ./dist
+        - node_modules
+        - package.json
+    run:
+      start: start:prod
+
+  - setup: dev
+    envVariables:
+      DB_HOST: db
+      DB_NAME: db
+      DB_PASS: ${db_password}
+      DB_PORT: 5432
+      DB_USER: ${db_user}
+      URL: ${zeropsSubdomain}
+    build:
+      base: nodejs@20
+      buildCommands:
+        - npm i
+      deploy:
+        - ./
+        - .git
+    run:
+      start: code-server --auth=none --bind-addr="0.0.0.0:8080" /var/www
+
