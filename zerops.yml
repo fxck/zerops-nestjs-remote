@@ -33,7 +33,6 @@ zerops:
         - npm i
       deploy:
         - ./
-        - .git
     run:
       prepareCommands:
         - curl -fsSL https://code-server.dev/install.sh | sh
