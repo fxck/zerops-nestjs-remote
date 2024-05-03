@@ -1,4 +1,3 @@
-// src/app.controller.ts
 import { Controller, Get, Post, Res } from '@nestjs/common';
 import { Response } from 'express';
 import { EntryService } from './database/entry.service';

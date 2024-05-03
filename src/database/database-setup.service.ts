@@ -1,4 +1,3 @@
-// src/database/database-setup.service.ts
 import { Injectable, OnModuleInit } from '@nestjs/common';
 import { InjectConnection } from '@nestjs/typeorm';
 import { Connection } from 'typeorm';
