@@ -22,8 +22,4 @@ export class EntryService {
       count: count,
     };
   }
-
-  async getStatus(): Promise<{ status: string }> {
-    return { status: 'UP' };
-  }
 }

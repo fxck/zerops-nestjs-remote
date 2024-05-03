@@ -14,7 +14,6 @@ export class AppController {
 
   @Get('/status')
   async getStatus(@Res() res: Response) {
-    const result = await this.entryService.getStatus();
-    return res.status(200).send(result);
+    return res.status(200).send({ status: 'OK' });
   }
 }
